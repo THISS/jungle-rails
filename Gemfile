@@ -52,6 +52,10 @@ group :development do
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
+
+  # Open emails without sending them
+  gem 'letter_opener'
+  gem 'letter_opener_web'
 end
 
 group :production do

@@ -1,0 +1,9 @@
+
+Confirmation of order number <%= @order.id %>
+
+items purchased:
+<% @items.each do |item| %>
+  <%= item.product.name %> 
+<% end %>
+
+Totalling: <%= @order.total_cents %>
