@@ -35,7 +35,7 @@
             TOTAL:
           </th>
           <th>
-            <%= @order.total_cents %>
+            <%= humanized_money_with_symbol @order.total_cents %>
           </th>
         </tr>
       </tfoot>
