@@ -1,5 +1,4 @@
-class Admin::DashboardController < ApplicationController
-  before_filter :authorize
+class Admin::DashboardController < AdminController
   def show
   end
 end
