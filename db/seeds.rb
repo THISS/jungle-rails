@@ -132,5 +132,28 @@ cat3.products.create!({
   price: 2_483.75
 })
 
+user1 = User.find_or_create_by! first_name: "Jack", last_name: "Paton", email: "jackpaton@gmail.com", password_digest: "IamAranDomStr1nG"
+user2 = User.find_or_create_by! first_name: "Michelle", last_name: "Fontain", email: "miche@gmail.com", password_digest: "IamAranDomStr1nG"
+
+prod1 = Product.find_or_create_by!(name: 'Red Bookshelf')
+prod2 = Product.find_or_create_by!(name: 'Electric Chair')
+
+rev1 = prod1.reviews.create!({
+  user_id: user1.id,
+  description: "What a nice Bookshelf, I am saving for a second one",
+  rating: 5
+})
+
+rev2 = prod1.reviews.create!({
+  user_id: user2.id,
+  description: "I would have preferred it to be in tomato",
+  rating: 2
+})
+
+rev3 = prod2.reviews.create!({
+  user_id: user1.id,
+  description: "The lint is real",
+  rating: 5
+})
 
 puts "DONE!"

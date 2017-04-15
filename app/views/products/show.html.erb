@@ -25,6 +25,38 @@
         </dl>
       </div>
     </div>
+    <div class="row">
+      <h2>Reviews</h2>
+      <div class="col-sm-3">
+          <h4>Username</h4>
+        </div>
+        <div class="col-sm-3">
+          <h4>Star Rating</h4>
+        </div>
+        <div class="col-sm-6">
+          <h4>Description</h4>
+        </div>
+      <div class="col-sm-12"></div>
+      <% @product.reviews.each do |review| %>
+        <div class="col-sm-3">
+          <h5><%= review.user.first_name %></h5>
+        </div>
+        <div class="col-sm-3">
+          <div>
+          <% for i in 0..review.rating %>
+            ★
+          <% end %>
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <%= review.description %>
+        </div>
+        <div class="col-sm-12"></div>
+      <% end %>
+    </div>
+    <div class="row">
+      
+    </div>
 
   </article>
 
