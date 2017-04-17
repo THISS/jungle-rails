@@ -2,10 +2,9 @@
 
 <%= form_for :user, url: '/users' do |f| %>
 
-  <% #if f.object.errors.any? %>
-    <% if false %>
+   <% if f.object && f.object.errors.any? %>
     <div class="alert alert-danger">
-      <strong>The following errors prevented sign up:</strong>
+      <strong>The following errors prevented saving:</strong>
       <ul>
         <% f.object.errors.full_messages.each do |error| %>
           <li><%= error %></li>
