@@ -1,5 +1,5 @@
 <% if cart.size > 0 %>
-  <%= render partial: 'cart', locals: { user: current_user } %>
+  <%= render partial: 'cart', locals: { user: @user } %>
 <% else %>
   <%= render 'empty' %>
 <% end %>

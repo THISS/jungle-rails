@@ -16,16 +16,14 @@ Rails.application.routes.draw do
   resources :orders, only: [:create, :show]
 
   namespace :admin do
-    root to: 'dashboard#show'
+    root to: 'products#index'
     resources :products, except: [:edit, :update, :show]
     resources :categories, except: [:edit, :update, :show, :destroy]
   end
 
 
   # letter_opener_web
-  if Rails.env.development?
-    mount LetterOpenerWeb::Engine, at: "/letter_opener"
-  end
+    mount LetterOpenerWeb::Engine, at: "/letter_opener" if Rails.env.development?
 
 
   # these routes are for showing users a login form, logging them in, and logging them out.

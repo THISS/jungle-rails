@@ -1,0 +1,32 @@
+<div class="row">
+  <h2>Reviews</h2>
+  <div class="col-sm-3">
+      <h4>Username</h4>
+    </div>
+    <div class="col-sm-3">
+      <h4>Star Rating</h4>
+    </div>
+    <div class="col-sm-6">
+      <h4>Description</h4>
+    </div>
+  <div class="col-sm-12"></div>
+  <% reviews.order(updated_at: :DESC).each do |review| %>
+    <div class="col-sm-3">
+      <h5><%= review.user.first_name %></h5>
+    </div>
+    <div class="col-sm-3">
+      <div>
+      <% for i in 0..review.rating - 1 %>
+        ★
+      <% end %>
+      </div>
+    </div>
+    <div class="col-sm-5">
+      <%= review.description %>
+    </div>
+    <div class="col-sm-1">
+      <%= link_to("X", review, method: :delete, data: { confirm: "are you sure you want to delete your #{review.rating} star review?"}) unless (review.user != current_user) %>
+    </div>
+    <div class="col-sm-12"></div>
+  <% end %>
+</div>

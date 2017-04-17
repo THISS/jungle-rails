@@ -1,6 +1,7 @@
 class CartsController < ApplicationController
   before_filter :authorize
   def show
+    @user = current_user #? current_user : User.find_by email: "jackpaton@gmail.com"
   end
 
   def add_item
